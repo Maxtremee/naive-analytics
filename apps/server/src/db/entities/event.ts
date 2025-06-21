@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Session } from "./session";
 import { EventType } from "../../modules/event/event-type";
+import { Session } from "./session";
 
 @Entity()
 export class Event {

@@ -4,6 +4,7 @@ export const EVENT_EVENT = "event" as const;
 
 export class EventEvent {
 	constructor(
+		public readonly apiKey: string,
 		public readonly sessionId: string,
 		public readonly type: EventType,
 		public readonly data: Record<string, unknown>,

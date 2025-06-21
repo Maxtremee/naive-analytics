@@ -27,6 +27,7 @@
 		"@nestjs/config": "4.0.2",
 		"typeorm": "0.3.24",
 		"nestjs-zod": "4.3.1",
+		"nestjs-real-ip": "3.0.1",
 		"pg": "8.16.2",
 		"bullmq": "5.49.0",
 		"zod": "3.24.4",

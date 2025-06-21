@@ -28,12 +28,14 @@ export class Website {
 	@Column()
 	owner!: string;
 
-	@Column()
+	@Column({
+		unique: true,
+	})
 	apiKey!: string;
 
 	@OneToMany(
 		() => Session,
-		(session) => session.id,
+		(session) => session.website,
 	)
 	sessions!: Session[];
 }

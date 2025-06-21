@@ -1,4 +1,4 @@
-import { OnWorkerEvent, Processor } from "@nestjs/bullmq";
+import { OnWorkerEvent, Processor, WorkerHost } from "@nestjs/bullmq";
 import { Inject, Logger } from "@nestjs/common";
 import { Job } from "bullmq";
 import { EVENT_EVENT, EventEvent } from "src/common/events/event.event";
@@ -8,12 +8,14 @@ import { EventService } from "./event.service";
 export type EventJob = Job<EventEvent, void, typeof EVENT_EVENT>;
 
 @Processor(QUEUES.EVENT)
-export class EventConsumer {
+export class EventConsumer extends WorkerHost {
 	private readonly logger = new Logger(EventConsumer.name);
 
 	constructor(
 		@Inject(EventService) private readonly eventService: EventService,
-	) {}
+	) {
+		super();
+	}
 
 	@OnWorkerEvent("active")
 	async onActive(job: EventJob): Promise<void> {

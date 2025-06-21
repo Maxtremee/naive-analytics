@@ -1,5 +1,4 @@
 import { Body, Controller, Post } from "@nestjs/common";
-import { ApiOkResponse } from "@nestjs/swagger";
 import { createZodDto } from "nestjs-zod";
 import { z } from "zod";
 import { WebsiteService } from "./website.service";
@@ -16,9 +15,6 @@ export class WebsiteController {
 	constructor(private readonly websiteService: WebsiteService) {}
 
 	@Post("register")
-	@ApiOkResponse({
-		type: CreateWebsiteDto,
-	})
 	createWebsite(@Body() body: CreateWebsiteDto) {
 		return this.websiteService.createWebsite(body);
 	}

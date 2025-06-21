@@ -1,5 +1,20 @@
 {
 	"name": "@naive-analytics/script",
-	"scripts": {},
-	"dependencies": {}
+	"exports": {
+		".": ["./dist/index.js", "./dist/index.d.ts"]
+	},
+	"type": "module",
+	"scripts": {
+		"build": "tsup",
+		"schema": "openapi-typescript http://localhost:3000/api-json -o ./src/client/openapi.ts --export-type --enum --dedupe-enums"
+	},
+	"dependencies": {
+		"openapi-fetch": "0.13.5",
+		"md5": "2.3.0"
+	},
+	"devDependencies": {
+		"@types/md5": "2.3.5",
+		"tsup": "8.5.0",
+		"openapi-typescript": "7.6.1"
+	}
 }

@@ -33,10 +33,12 @@ export class Session {
 
 	@Column({
 		type: "timestamp",
+		nullable: true,
 	})
-	enteredAt!: Date;
+	enteredAt?: Date;
 
 	@Column({
+		type: "timestamp",
 		nullable: true,
 	})
 	exitedAt?: Date;
@@ -47,6 +49,7 @@ export class Session {
 	duration?: number;
 
 	@Column({
+		nullable: true,
 		type: "jsonb",
 	})
 	path?: string[];
