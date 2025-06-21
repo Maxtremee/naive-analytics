@@ -4,8 +4,9 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
-		"check": "biome check --fix",
-		"typecheck": "tsc --noEmit"
+		"check": "biome check --write",
+		"typecheck": "tsc --noEmit",
+		"clean": "rm -rf node_modules */**/node_modules */**/dist"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.0.4",
@@ -15,5 +16,12 @@
 	"packageManager": "pnpm@9.0.0",
 	"engines": {
 		"node": ">=22"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"@nestjs/core",
+			"@swc/core"
+		]
 	}
 }
