@@ -3,11 +3,6 @@ import { getClient } from "./client/client";
 import { CreateEventDtoType } from "./client/openapi";
 
 export const analytics = (apiUrl: string, apiKey: string) => {
-	// respect do not track
-	if (navigator.doNotTrack === "1" || navigator.doNotTrack === "yes") {
-		return;
-	}
-
 	const client = getClient(apiUrl);
 
 	const enteredAt = Date.now();
