@@ -8,6 +8,7 @@ import { ZodValidationPipe } from "nestjs-zod";
 import { bullBoardOptions, queueOptions } from "./common/queue";
 import { dataSourceOptions } from "./db/datasource";
 import { EventModule } from "./modules/event/event.module";
+import { MetricsModule } from "./modules/metrics/metrics.module";
 import { SessionModule } from "./modules/session/session.module";
 import { WebsiteModule } from "./modules/website/website.module";
 
@@ -20,6 +21,7 @@ import { WebsiteModule } from "./modules/website/website.module";
 		WebsiteModule,
 		EventModule,
 		SessionModule,
+		MetricsModule,
 	],
 	providers: [
 		{

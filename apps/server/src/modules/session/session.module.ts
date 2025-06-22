@@ -5,12 +5,12 @@ import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { QUEUES } from "../../common/queue";
 import { Session } from "../../db/entities/session";
+import { Website } from "../../db/entities/website";
+import { WebsiteModule } from "../website/website.module";
+import { WebsiteService } from "../website/website.service";
 import { SessionConsumer } from "./session.consumer";
 import { SessionController } from "./session.controller";
 import { SessionService } from "./session.service";
-import { WebsiteModule } from "../website/website.module";
-import { WebsiteService } from "../website/website.service";
-import { Website } from "../../db/entities/website";
 
 @Module({
 	imports: [

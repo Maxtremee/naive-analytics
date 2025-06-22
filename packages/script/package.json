@@ -1,7 +1,10 @@
 {
 	"name": "@naive-analytics/script",
 	"exports": {
-		".": ["./dist/index.js", "./dist/index.d.ts"]
+		".": [
+			"./dist/index.js",
+			"./dist/index.d.ts"
+		]
 	},
 	"type": "module",
 	"scripts": {

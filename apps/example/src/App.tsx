@@ -17,9 +17,7 @@ export default function App() {
 			<a href="https://example.com" target="_blank" rel="noopener">
 				Link
 			</a>
-			<a href="#test">
-				Link
-			</a>
+			<a href="#test">Link</a>
 		</>
 	);
 }
