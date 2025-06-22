@@ -14,6 +14,10 @@ import {
 	MetricsResponseDto,
 	MetricsService,
 	ReferrersResponseDto,
+	DeviceAnalyticsResponseDto,
+	GeographicAnalyticsResponseDto,
+	PageAnalyticsResponseDto,
+	RealTimeResponseDto,
 } from "./metrics.service";
 
 const metricsQueryParams = z.object({
@@ -53,5 +57,56 @@ export class MetricsController {
 			throw new NotFoundException("Website not found");
 		}
 		return this.metricsService.getReferrers(website.id, query);
+	}
+
+	@Get("/:apiKey/device-analytics")
+	@ApiOkResponse({ type: DeviceAnalyticsResponseDto })
+	async getDeviceAnalytics(
+		@Param("apiKey") apiKey: string,
+		@Query() query: MetricsQueryParams,
+	) {
+		const website = await this.websiteService.getWebsiteByApiKey(apiKey);
+		if (!website) {
+			throw new NotFoundException("Website not found");
+		}
+		return this.metricsService.getDeviceAnalytics(website.id, query);
+	}
+
+	@Get("/:apiKey/geographic-analytics")
+	@ApiOkResponse({ type: GeographicAnalyticsResponseDto })
+	async getGeographicAnalytics(
+		@Param("apiKey") apiKey: string,
+		@Query() query: MetricsQueryParams,
+	) {
+		const website = await this.websiteService.getWebsiteByApiKey(apiKey);
+		if (!website) {
+			throw new NotFoundException("Website not found");
+		}
+		return this.metricsService.getGeographicAnalytics(website.id, query);
+	}
+
+	@Get("/:apiKey/page-analytics")
+	@ApiOkResponse({ type: PageAnalyticsResponseDto })
+	async getPageAnalytics(
+		@Param("apiKey") apiKey: string,
+		@Query() query: MetricsQueryParams,
+	) {
+		const website = await this.websiteService.getWebsiteByApiKey(apiKey);
+		if (!website) {
+			throw new NotFoundException("Website not found");
+		}
+		return this.metricsService.getPageAnalytics(website.id, query);
+	}
+
+	@Get("/:apiKey/real-time")
+	@ApiOkResponse({ type: RealTimeResponseDto })
+	async getRealTimeMetrics(
+		@Param("apiKey") apiKey: string,
+	) {
+		const website = await this.websiteService.getWebsiteByApiKey(apiKey);
+		if (!website) {
+			throw new NotFoundException("Website not found");
+		}
+		return this.metricsService.getRealTimeMetrics(website.id);
 	}
 }

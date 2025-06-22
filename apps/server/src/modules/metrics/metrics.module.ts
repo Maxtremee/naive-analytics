@@ -7,10 +7,11 @@ import { WebsiteModule } from "../website/website.module";
 import { WebsiteService } from "../website/website.service";
 import { MetricsController } from "./metrics.controller";
 import { MetricsService } from "./metrics.service";
+import { Event } from "../../db/entities/event";
 
 @Module({
 	imports: [
-		TypeOrmModule.forFeature([Website, Session]),
+		TypeOrmModule.forFeature([Website, Session, Event]),
 		SessionModule,
 		WebsiteModule,
 	],
